@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Gallery Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background: url("Image/BackImage.jpg") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position:relative;
+      z-index: 1000;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* Dropdown */
+   .dropdown {
+    position: relative;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;      /* fixed from 'relative' */
+    background-color: #f9f9f9;
+    min-width: 150px;
+    max-height: 250px;       /* scroll limit */
+    overflow-y: auto;        /* enables scroll */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;          /* fixed from flex */
+    text-align: left;
+}
+
+/* Hover highlight */
+.dropdown-content a:hover {
+    background-color: #060606;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Custom scrollbar */
+.dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+    .gallery-container {
+      padding: 60px 40px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .gallery-container img {
+
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .about-section {
+      background-color: rgba(255, 255, 255, 0.767);
+      margin: 0 40px 40px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .about-section h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .about-section p {
+      line-height: 1.6;
+      color: #000000;
+      font-size: 18px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-left, .nav-right {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .dropdown-content {
+        position: static;
+      }
+      .about-section {
+        margin: 20px;
+      }
+    }
+    h1{
+      text-align: center;
+      background-color: #e1dddd95;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-left">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="Form.html">Contact Us</a>
+      <a href="#dashboard">Live Dashboard</a>
+
+      <!-- Dropdown -->
+      <div class="dropdown">
+        <a href="">Region ▾</a>
+        <div class="dropdown-content">
+          <a href="Dhaka.html">Dhaka</a>
+          <a href="Faridpur.html">Faridpur</a>
+          <a href="#">Gazipur</a>
+          <a href="#">Gopalganj</a>
+          <a href="#">Jamalpur</a>
+          <a href="#">Kishoreganj</a>
+          <a href="#">Madaripur</a>
+          <a href="#">Manikganj</a>
+          <a href="#">Munshiganj</a>
+          <a href="#">Mymensingh</a>
+          <a href="#">Narayanganj</a>
+          <a href="#">Narsingdi</a>
+          <a href="#">Netrokona</a>
+          <a href="#">Rajbari</a>
+          <a href="#">Shariatpur</a>
+          <a href="#">Sherpur</a>
+          <a href="#">Tangail</a>
+          <a href="#">Bogra</a>
+          <a href="#">Joypurhat</a>
+          <a href="#">Naogaon</a>
+          <a href="#">Natore</a>
+          <a href="#">Nawabganj</a>
+          <a href="#">Pabna</a>
+          <a href="#">Rajshahi</a>
+          <a href="#">Sirajgonj</a>
+          <a href="#">Dinajpur</a>
+          <a href="#">Gaibandha</a>
+          <a href="#">Kurigram</a>
+          <a href="#">Lalmonirhat</a>
+          <a href="#">Nilphamari</a>
+          <a href="#">Panchagarh</a>
+          <a href="#">Rangpur</a>
+          <a href="#">Thakurgaon</a>
+          <a href="#">Barguna</a>
+          <a href="#">Barisal</a>
+          <a href="#">Bhola</a>
+          <a href="#">Jhalokati</a>
+          <a href="#">Patuakhali</a>
+          <a href="#">Pirojpur</a>
+          <a href="#">Bandarban</a>
+          <a href="#">Brahmanbaria</a>
+          <a href="#">Chandpur</a>
+          <a href="#">Chittagong</a>
+          <a href="#">Comilla</a>
+          <a href="#">Cox's Bazar</a>
+          <a href="#">Feni</a>
+          <a href="#">Khagrachari</a>
+          <a href="#">Lakshmipur</a>
+          <a href="#">Noakhali</a>
+          <a href="#">Rangamati</a>
+          <a href="#">Habiganj</a>
+          <a href="#">Maulvibazar</a>
+          <a href="#">Sunamganj</a>
+          <a href="#">Sylhet</a>
+          <a href="#">Bagerhat</a>
+          <a href="#">Chuadanga</a>
+          <a href="#">Jessore</a>
+          <a href="#">Jhenaidah</a>
+          <a href="#">Khulna</a>
+          <a href="#">Kushtia</a>
+          <a href="#">Magura</a>
+          <a href="#">Meherpur</a>
+          <a href="#">Narail</a>
+          <a href="#">Satkhira</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <a href="#">Profile</a>
+      <a href="Log.html">Logout</a>
+    </div>
+  </nav>
+  <h1>Pollution Monitoring System</h1>
+  <!-- Gallery -->
+  <div class="gallery-container">
+    <img src="Image/Air1.jpg" alt="Image 1" />
+    <img src="Image/Air2.jpg" alt="Image 2" />
+    <img src="Image/Water 1.jpg" alt="Image 3" />
+    <img src="Image/Water 2.jpg" alt="Image 4" />
+    <img src="Image/Air 3.jpg" alt="Image 5" />
+    <img src="Image/Water 3.jpg" alt="Image 6" />
+    <img src="Image/Air 4.jpg" alt="Image 7" />
+    <img src="Image/Water 4.jpeg" alt="Image 8" />
+  </div>
+
+  <!-- About Section -->
+  <div class="about-section" id="about">
+    <h2>What is Air Pollution?</h2>
+    <p>
+      Air pollution refers to the presence of harmful substances in the air that make it unsafe for humans, animals, and the environment. These pollutants include smoke, dust, chemicals, and gases such as carbon monoxide, sulfur dioxide, and nitrogen oxides. Air pollution mainly comes from factories, vehicles, burning fossil fuels, brick kilns, agricultural burning, and household smoke. Its effects are serious—causing breathing problems, asthma, lung diseases, global warming, acid rain, and damage to crops and forests. Preventing air pollution requires using clean energy, reducing vehicle use, planting more trees, using proper industrial filters, and minimizing burning activities to keep the air clean and healthy. 
+    </p> <br> <br>
+    <h2>What is Water Pollution?</h2>
+    <p>
+      Water pollution happens when harmful substances mix with water in rivers, lakes, ponds, oceans, or underground sources, making the water unsafe for people, animals, and the environment. This contamination often comes from industrial waste, household sewage, plastics, chemicals, pesticides, and even oil spills. When these pollutants enter water bodies, they cause serious problems—spreading waterborne diseases, killing fish and other aquatic life, damaging entire ecosystems, and making drinking water unsafe. To prevent water pollution, it’s important to treat waste properly, improve sanitation, reduce plastic use, choose eco-friendly farming methods, and protect our water resources through strong environmental rules and responsible behavior.
+    </p> <br> <br>
+    <h2>How garbage destroys the environment!</h2>
+    <p>
+      Garbage harms the environment in many serious ways. When waste is thrown into open fields, rivers, or streets, it breaks down slowly and releases toxic chemicals into the soil and water, making them unsafe for plants, animals, and humans. Plastic waste is especially dangerous because it does not decompose easily; it blocks drainage systems, causes flooding, and harms wildlife when animals accidentally eat it. Garbage dumps also release foul smells and attract insects and rodents that spread diseases. Burning garbage is another major problem—it produces harmful smoke and poisonous gases that pollute the air and cause breathing problems. Over time, unmanaged waste destroys natural habitats, reduces biodiversity, and contributes to climate change, making the environment unhealthy and unsafe for everyone.
+    </p> <br> <br>
+    <h2>Recycling Garbage</h2>
+    <p>
+      Recycling garbage is not harmful when it is done properly—actually, it is one of the best ways to protect the environment. Recycling reduces the amount of waste that ends up in landfills, saves natural resources, and lowers pollution from making new products. It also cuts down energy use and reduces greenhouse gas emissions.
+
+However, recycling can become harmful if it is done incorrectly. For example, if waste is not separated properly, or if recycling factories do not follow safety standards, it can create air and water pollution. Some low-quality recycling plants release toxic chemicals or burn unusable waste, which harms nearby communities. But these problems happen because of poor management, not because recycling itself is bad.
+
+Overall, recycling is safe and environmentally beneficial, as long as proper systems, technology, and regulations are in place.
+    </p> <br> <br>
+    <h2>How to Reduce It</h2>
+    <p>
+     <b> Air Pollution</b> – How to Reduce It:
+
+Air pollution can be reduced by choosing cleaner ways to travel, such as using public transport, bicycles, or walking instead of using private vehicles all the time. Regular vehicle maintenance also helps lower smoke emissions. Burning garbage, plastics, or leaves should be avoided because it releases harmful gases into the air. Factories must use proper filters and follow pollution control guidelines. Planting more trees is one of the most effective ways to improve air quality, as trees absorb carbon dioxide and release fresh oxygen. <br>
+<b>Water Pollution</b> – How to Prevent It:
+
+Water pollution can be prevented by making sure waste is never thrown into rivers, ponds, or drains. Industries must treat their wastewater before releasing it into any water body. Good sanitation practices—such as using clean toilets and maintaining proper drainage—also play a big role in protecting water sources. Reducing harmful chemicals and pesticides in farming helps keep groundwater clean. At home, saving water by turning off taps and fixing leaks ensures less waste and more sustainable use of this vital resource. <br>
+<b>Garbage Pollution</b> – How to Control It:
+
+Garbage pollution can be reduced by separating waste into categories like organic materials, plastics, glass, and metals so that more items can be recycled or reused. Cutting down the use of single-use plastics and choosing reusable products helps reduce waste. Food scraps and natural waste can be composted to create fertilizer instead of filling landfills. Proper disposal using dustbins and following local waste management systems also keeps the environment clean. Spreading awareness in communities encourages more responsible waste handling and a cleaner surroundings.
+    </p><br><br>
+    <h2>Monitoring System</h2>
+    <p>
+      The Air & Water Pollution Monitoring System is a smart solution designed to monitor environmental pollution in real time. It focuses on detecting harmful pollutants in both air and water sources, using modern technologies like sensors, databases, and mobile/web applications. This system allows both authorities and the general public to track pollution levels, report local incidents, and raise awareness about environmental issues. By collecting and displaying accurate data, it helps in identifying pollution hotspots, supporting quick decision-making, and promoting cleaner, healthier surroundings. <br> Our goal is to build a transparent, community-driven approach to environmental protection—empowering people to take action against pollution and ensure a sustainable future for all.
+    </p><br><br>
+    <h2>Awareness</h2>
+    <p>
+      Creating awareness about air and water pollution is essential for protecting our environment and ensuring a healthy future. Air and water are vital natural resources, but pollution caused by vehicles, factories, plastic waste, and improper disposal of garbage is threatening their quality. To build a pollution-free world, people must be encouraged to adopt eco-friendly habits like using clean transportation, avoiding waste dumping into water bodies, reducing plastic use, and planting more trees. Education and awareness play a powerful role in changing behavior and inspiring communities to take responsibility for their surroundings. A cleaner environment starts with each of us, and through collective effort, we can work toward a world free from air and water pollution.
+    </p>
+  </div>
+  <div class=""></div>
+<!-- Live Dashboard Section -->
+<div class="dashboard-section" id="dashboard">
+  <h2 style="text-align:center; margin-bottom: 30px; color:#fff;">Dhaka</h2>
+  <div class="dashboard-container">
+    <div class="dashboard-card">
+      <h3>Air Quality Index</h3>
+      <p id="airIndex">85</p>
+    </div>
+    <div class="dashboard-card">
+      <h3>Water Quality Index</h3>
+      <p id="waterIndex">72</p>
+    </div>
+    <div class="dashboard-card">
+      <h3>Garbage Collected (kg)</h3>
+      <p id="garbageIndex">150</p>
+    </div>
+    <div class="dashboard-card">
+      <h3>Alerts</h3>
+      <p id="alertIndex">3</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dashboard-section {
+    background: rgba(0,0,0,0.8);
+    padding: 50px 40px;
+    border-radius: 12px;
+    margin: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+  }
+
+  .dashboard-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .dashboard-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .dashboard-card p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0d6efd;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-section {
+      padding: 30px 20px;
+      margin: 20px;
+    }
+    .dashboard-card p {
+      font-size: 26px;
+    }
+  }
+</style>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Software Engineering Project. All rights reserved (Group - 1).
+  </footer>
+
+</body>
+</html>
