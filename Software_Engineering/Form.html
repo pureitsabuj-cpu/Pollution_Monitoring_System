@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Submission</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("Image/BackImage.jpg") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: 50px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    input, textarea {
+      width: 95%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+  </style>
+</head>
+<body>
+<h1 style="text-align: center;">Pollution Monitoring System</h1>
+  <form action="submit.php" method="POST" enctype="multipart/form-data">
+    <h2>Submit Your Information</h2>
+    
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+
+    <label for="number">Phone Number:</label>
+    <input type="text" name="number" required>
+
+    <label for="photo">Photo:</label>
+    <input type="file" name="photo" accept="image/*" required>
+
+    <label for="address">Address:</label>
+    <input type="text" name="address" required>
+
+    <label for="comment">Comment:</label>
+    <textarea name="comment" rows="4"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
